@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohini Shrisha S — Automotive Infotainment Test Engineer</title>
+<meta name="description" content="Rohini Shrisha S — Automotive QA Engineer. 3+ years at Bosch BGSW. CAN Protocol, Python Automation, Bengaluru.">
+<style>
+/* ── THEMES ── */
+[data-theme="dark"]{--bg:#000;--s1:#0a0a0a;--s2:#111;--s3:#1a1a1a;--b:rgba(255,255,255,.07);--bh:rgba(255,255,255,.14);--t:#f5f5f7;--t2:#a1a1a6;--t3:#6e6e73;--sh:rgba(0,0,0,.55);}
+[data-theme="light"]{--bg:#f5f5f7;--s1:#fff;--s2:#f0f0f5;--s3:#e8e8ed;--b:rgba(0,0,0,.07);--bh:rgba(0,0,0,.13);--t:#1d1d1f;--t2:#515154;--t3:#86868b;--sh:rgba(0,0,0,.1);}
+:root{--blue:#2997ff;--green:#30d158;--orange:#ff9f0a;--sp:cubic-bezier(.34,1.56,.64,1);--out:cubic-bezier(.22,1,.36,1);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,'Helvetica Neue',sans-serif;background:var(--bg);color:var(--t);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .35s,color .35s;cursor:none;}
+a{text-decoration:none;color:inherit;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:rgba(41,151,255,.4);border-radius:2px;}
+
+/* ── SPARKLE CURSOR ── */
+#cdot{position:fixed;width:6px;height:6px;background:var(--blue);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s var(--sp),height .2s var(--sp);}
+#cring{position:fixed;width:30px;height:30px;border:1.5px solid rgba(41,151,255,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s var(--sp),height .35s var(--sp),border-color .3s;}
+.sp{position:fixed;pointer-events:none;z-index:9997;border-radius:50%;transform:translate(-50%,-50%);animation:spfx .65s var(--out) forwards;}
+@keyframes spfx{0%{opacity:1;transform:translate(-50%,-50%) scale(1);}100%{opacity:0;transform:translate(calc(-50% + var(--sx)),calc(-50% + var(--sy))) scale(0);}}
+@media(max-width:600px){body{cursor:auto;}#cdot,#cring{display:none;}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;background:rgba(0,0,0,.75);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--b);transition:background .3s;}
+[data-theme="light"] nav{background:rgba(245,245,247,.88);}
+.nlogo{font-size:1rem;font-weight:700;color:var(--t);letter-spacing:-.02em;}.nlogo span{color:var(--blue);}
+.nlinks{display:flex;gap:1.8rem;list-style:none;}
+.nlinks a{font-size:.75rem;color:var(--t2);transition:color .2s;position:relative;}
+.nlinks a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--blue);transform:scaleX(0);transform-origin:right;transition:transform .3s var(--out);}
+.nlinks a:hover{color:var(--t);}.nlinks a:hover::after{transform:scaleX(1);transform-origin:left;}
+.nr{display:flex;align-items:center;gap:.65rem;}
+.tbtn{width:32px;height:32px;border-radius:50%;background:var(--s2);border:1px solid var(--b);cursor:pointer;font-size:.88rem;display:flex;align-items:center;justify-content:center;transition:transform .25s;}
+.tbtn:hover{transform:scale(1.1) rotate(15deg);}
+.ndl{padding:6px 13px;background:var(--s2);border:1px solid var(--bh);color:var(--t);font-size:.73rem;font-weight:500;border-radius:980px;}
+.ndl:hover{background:var(--s3);}
+.nhire{padding:7px 15px;background:var(--blue);color:#fff;font-size:.75rem;font-weight:700;border-radius:980px;transition:opacity .2s,transform .2s,box-shadow .2s;}
+.nhire:hover{opacity:.88;transform:scale(1.03);box-shadow:0 4px 18px rgba(41,151,255,.45);}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.burger span{display:block;width:20px;height:1.5px;background:var(--t2);border-radius:1px;transition:transform .3s,opacity .3s;}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mmenu{display:none;position:fixed;top:52px;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b);padding:1.4rem 28px;flex-direction:column;gap:1rem;z-index:899;}
+.mmenu.show{display:flex;}
+.mmenu a{font-size:.92rem;color:var(--t2);font-weight:500;}
+.mmenu a:hover{color:var(--blue);}
+
+/* ── HERO ── */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;background:#000;position:relative;overflow:hidden;}
+[data-theme="light"] #hero{background:linear-gradient(180deg,#06080f,#0a1020);}
+/* aurora */
+.aur{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;}
+.a1{width:65%;height:55%;top:10%;left:-5%;background:radial-gradient(ellipse,rgba(41,151,255,.13),transparent 70%);animation:adrift 14s ease-in-out infinite alternate;}
+.a2{width:55%;height:45%;top:35%;right:-10%;background:radial-gradient(ellipse,rgba(90,200,250,.09),transparent 70%);animation:adrift 14s ease-in-out 4s infinite alternate;}
+.a3{width:45%;height:35%;bottom:5%;left:25%;background:radial-gradient(ellipse,rgba(48,209,88,.06),transparent 70%);animation:adrift 14s ease-in-out 8s infinite alternate;}
+@keyframes adrift{0%{transform:translate(0,0) scale(1);}50%{transform:translate(3%,3%) scale(1.05);}100%{transform:translate(-2%,2%) scale(.97);}}
+/* grid */
+.hgrid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 65% 65% at 50% 50%,black 20%,transparent 100%);}
+
+/* avatar */
+.av-wrap{position:relative;display:inline-block;margin-bottom:1.8rem;}
+.av-ring{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,rgba(41,151,255,.2),rgba(41,151,255,.05));border:1.5px solid rgba(41,151,255,.32);display:flex;align-items:center;justify-content:center;margin:0 auto;animation:avbob 4s ease-in-out infinite;box-shadow:0 0 40px rgba(41,151,255,.18);font-size:3.6rem;}
+.av-ring-outer{position:absolute;inset:-5px;border-radius:50%;border:1.5px solid rgba(41,151,255,.22);animation:ringspin 10s linear infinite;}
+.av-ring-dash{position:absolute;inset:-11px;border-radius:50%;border:1px dashed rgba(90,200,250,.15);animation:ringspin 16s linear infinite reverse;}
+@keyframes avbob{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
+@keyframes ringspin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+.avf{position:absolute;font-size:1.15rem;animation:avforbit 5s ease-in-out infinite;filter:drop-shadow(0 2px 6px rgba(41,151,255,.4));}
+@keyframes avforbit{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-7px) scale(1.15);}}
+
+/* hero text */
+.hbadge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:980px;font-size:.71rem;font-weight:500;color:rgba(255,255,255,.55);margin-bottom:1.3rem;backdrop-filter:blur(8px);}
+.bdot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:gpulse 2.5s infinite;}
+@keyframes gpulse{0%,100%{box-shadow:0 0 0 0 rgba(48,209,88,.5);}50%{box-shadow:0 0 0 6px rgba(48,209,88,0);}}
+h1.hname{font-size:clamp(2.9rem,8.5vw,7.5rem);font-weight:700;letter-spacing:-.04em;line-height:.96;color:#fff;}
+h1.hname .grad{display:block;background:linear-gradient(135deg,#2997ff,#5ac8fa,#9effff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 35px rgba(41,151,255,.35));}
+.hrole{font-size:clamp(.88rem,1.9vw,1.12rem);color:rgba(255,255,255,.42);max-width:520px;margin:1.2rem auto 0;line-height:1.65;}
+.hrole strong{color:rgba(255,255,255,.68);font-weight:500;}
+.htw{font-size:.84rem;color:var(--blue);font-weight:500;margin-top:.75rem;height:1.35em;}
+.twc{display:inline-block;width:2px;height:1em;background:var(--blue);margin-left:2px;animation:blink 1s step-end infinite;vertical-align:middle;}
+@keyframes blink{50%{opacity:0;}}
+.hcta{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem;}
+.btnp{display:inline-flex;align-items:center;gap:7px;padding:13px 25px;background:var(--blue);color:#fff;font-size:.86rem;font-weight:600;border-radius:980px;position:relative;overflow:hidden;transition:transform .3s var(--sp),box-shadow .3s;}
+.btnp:hover{transform:scale(1.04) translateY(-2px);box-shadow:0 8px 28px rgba(41,151,255,.45);}
+.btng{display:inline-flex;align-items:center;gap:7px;padding:13px 25px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.17);color:#fff;font-size:.86rem;font-weight:500;border-radius:980px;backdrop-filter:blur(8px);transition:transform .3s var(--sp),background .3s;}
+.btng:hover{transform:scale(1.04) translateY(-2px);background:rgba(255,255,255,.11);}
+
+/* hero stats */
+.hstats{display:flex;justify-content:center;flex-wrap:wrap;margin-top:4.5rem;border-top:1px solid rgba(255,255,255,.07);padding-top:2.2rem;}
+.hstat{flex:1;min-width:80px;text-align:center;padding:0 1.4rem;border-right:1px solid rgba(255,255,255,.07);}
+.hstat:last-child{border-right:none;}
+.hsn{font-size:clamp(1.7rem,3.2vw,2.6rem);font-weight:800;letter-spacing:-.04em;color:#fff;line-height:1;}
+.hsn .ac{color:var(--blue);}
+.hsl{font-size:.64rem;color:rgba(255,255,255,.3);margin-top:4px;}
+
+/* scroll cue */
+.scue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;}
+.sm{width:20px;height:32px;border:1.5px solid rgba(255,255,255,.18);border-radius:10px;display:flex;justify-content:center;padding-top:5px;}
+.sw{width:2.5px;height:6px;background:rgba(255,255,255,.4);border-radius:2px;animation:scy 2s ease-in-out infinite;}
+@keyframes scy{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(7px);opacity:0;}}
+.stxt{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.18);}
+
+/* ── WAVE ── */
+.wave{width:100%;overflow:hidden;line-height:0;}
+.wave svg{display:block;width:100%;}
+
+/* ── SECTIONS ── */
+section{padding:100px 24px;position:relative;}
+.si{max-width:1080px;margin:0 auto;}
+.ey{display:inline-flex;align-items:center;gap:8px;font-size:.69rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:.85rem;}
+.ey::before{content:'';display:block;width:16px;height:1px;background:var(--blue);}
+h2.st{font-size:clamp(1.9rem,4.8vw,3.5rem);font-weight:700;letter-spacing:-.033em;line-height:1.06;color:var(--t);margin-bottom:1.2rem;}
+h2.st .mu{color:var(--t3);font-weight:300;}
+h2.st .gr{background:linear-gradient(135deg,#2997ff,#5ac8fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s var(--out),transform .75s var(--out);}
+.rv.up{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}
+
+/* ── OPEN TO ── */
+#ot{background:var(--bg);padding:0 24px 50px;}
+.otc{max-width:1080px;margin:0 auto;background:linear-gradient(135deg,rgba(41,151,255,.07),rgba(41,151,255,.02));border:1px solid rgba(41,151,255,.18);border-radius:22px;padding:1.3rem 2rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.otd{width:10px;height:10px;border-radius:50%;background:var(--green);animation:gpulse 2s infinite;flex-shrink:0;}
+.otl{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.3rem;}
+.otr{display:flex;flex-wrap:wrap;gap:.4rem;}
+.otr span{padding:4px 11px;border-radius:980px;background:rgba(41,151,255,.1);border:1px solid rgba(41,151,255,.2);font-size:.72rem;color:var(--blue);font-weight:500;}
+.otloc{display:flex;gap:.4rem;flex-wrap:wrap;margin-left:auto;}
+.otloc span{padding:4px 11px;border-radius:980px;background:var(--s2);border:1px solid var(--b);font-size:.7rem;color:var(--t3);}
+
+/* ── ABOUT ── */
+#about{background:var(--s1);}
+.ablay{display:grid;grid-template-columns:300px 1fr;gap:4rem;align-items:start;}
+.idcard{background:var(--s2);border:1px solid var(--b);border-radius:22px;padding:2.1rem;box-shadow:0 20px 50px var(--sh);position:relative;overflow:hidden;}
+.idcard::before{content:'';position:absolute;top:-50%;left:-30%;width:190%;height:190%;background:conic-gradient(from 180deg at 50% 50%,rgba(41,151,255,.055) 0deg,transparent 60deg,transparent 300deg,rgba(41,151,255,.04) 360deg);animation:crot 22s linear infinite;pointer-events:none;}
+@keyframes crot{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+.idav{width:66px;height:66px;border-radius:50%;background:linear-gradient(135deg,#1a3a6e,#2997ff);display:flex;align-items:center;justify-content:center;font-size:1.85rem;margin-bottom:1.15rem;animation:avbob 4s ease-in-out infinite;box-shadow:0 6px 20px rgba(41,151,255,.28);position:relative;z-index:1;}
+.idnm{font-size:1.08rem;font-weight:700;color:var(--t);position:relative;z-index:1;}
+.idti{font-size:.76rem;color:var(--t3);margin-top:2px;position:relative;z-index:1;}
+.idsep{height:1px;background:var(--b);margin:1.1rem 0;position:relative;z-index:1;}
+.idrows{display:flex;flex-direction:column;gap:.58rem;position:relative;z-index:1;}
+.idrow{display:flex;align-items:center;gap:9px;font-size:.76rem;color:var(--t3);}
+.idrv{color:var(--t2);font-weight:500;}
+.idic{width:25px;height:25px;border-radius:7px;background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:.78rem;flex-shrink:0;}
+.idavail{display:inline-flex;align-items:center;gap:6px;margin-top:1.1rem;background:rgba(48,209,88,.07);border:1px solid rgba(48,209,88,.16);color:#34c759;font-size:.69rem;font-weight:600;padding:4px 12px;border-radius:980px;position:relative;z-index:1;}
+.idavd{width:6px;height:6px;border-radius:50%;background:var(--green);animation:gpulse 2s infinite;}
+.abtxt p{font-size:.95rem;color:var(--t2);line-height:1.85;margin-bottom:.95rem;}
+.abtxt p strong{color:var(--t);}
+.abtxt p em{color:var(--blue);font-style:normal;font-weight:500;}
+.pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem;}
+.pill{padding:4px 12px;border-radius:980px;background:rgba(41,151,255,.08);border:1px solid rgba(41,151,255,.16);font-size:.72rem;color:var(--blue);font-weight:500;transition:background .2s,transform .2s;}
+.pill:hover{background:rgba(41,151,255,.15);transform:scale(1.04);}
+
+/* ── SKILLS ── */
+#skills{background:var(--bg);}
+.skills-wrap{display:grid;grid-template-columns:1fr 300px;gap:1.5rem;margin-top:2.5rem;align-items:start;}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(135px,auto);gap:10px;}
+.bc{background:var(--s2);border:1px solid var(--b);border-radius:18px;padding:1.5rem;transition:transform .35s var(--sp),border-color .3s,box-shadow .3s;}
+.bc:hover{transform:translateY(-5px) scale(1.01);border-color:var(--bh);box-shadow:0 16px 38px var(--sh);}
+.bc.c6{grid-column:span 6;}.bc.c4{grid-column:span 4;}.bc.c3{grid-column:span 3;}.bc.c2{grid-column:span 2;}
+.bc.dk{background:var(--s3);}[data-theme="dark"] .bc.dk{background:#0d0d0d;}
+.bc.bt{background:linear-gradient(135deg,rgba(41,151,255,.07),rgba(41,151,255,.02));border-color:rgba(41,151,255,.13);}
+.bc.st{display:flex;flex-direction:column;justify-content:flex-end;}
+.bci{font-size:1.65rem;margin-bottom:.55rem;}
+.bcl{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.72rem;}
+.bctags{display:flex;flex-wrap:wrap;gap:5px;}
+.bct{padding:3px 8px;border-radius:980px;background:var(--s3);border:1px solid var(--b);font-size:.7rem;color:var(--t2);}
+.bc.bt .bct{background:rgba(41,151,255,.08);border-color:rgba(41,151,255,.13);color:rgba(41,151,255,.9);}
+.bbig{font-size:2.6rem;font-weight:800;letter-spacing:-.04em;color:var(--t);line-height:1;}
+.bbig .col{color:var(--blue);}
+.bcap{font-size:.72rem;color:var(--t3);margin-top:3px;}
+
+/* radar */
+.radar-card{background:var(--s2);border:1px solid var(--b);border-radius:22px;padding:1.6rem;display:flex;flex-direction:column;align-items:center;}
+.radar-ttl{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.9rem;align-self:flex-start;}
+#radar{width:100%;max-width:260px;}
+
+/* skill bars */
+.sbars{margin-top:1.2rem;}
+.sbi{margin-bottom:.85rem;}
+.sbh{display:flex;justify-content:space-between;margin-bottom:.28rem;font-size:.75rem;color:var(--t2);}
+.sbh span:last-child{color:var(--blue);font-weight:600;}
+.sbt{height:4px;background:var(--s3);border-radius:2px;overflow:hidden;}
+.sbf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),#5ac8fa);width:0;transition:width 1.4s var(--out);}
+
+/* ── EXPERIENCE ── */
+#exp{background:var(--s1);}
+.tl{position:relative;margin-top:2.5rem;padding-left:2.2rem;}
+.tl::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--blue),var(--green) 50%,var(--orange));}
+.tln{position:relative;margin-bottom:1.4rem;}
+.tld{position:absolute;left:-1.88rem;top:.55rem;width:14px;height:14px;border-radius:50%;z-index:1;transition:transform .3s var(--sp);}
+.tln:nth-child(1) .tld{background:var(--blue);box-shadow:0 0 0 3px rgba(41,151,255,.2);}
+.tln:nth-child(2) .tld{background:var(--green);box-shadow:0 0 0 3px rgba(48,209,88,.2);}
+.tln:nth-child(3) .tld{background:var(--orange);box-shadow:0 0 0 3px rgba(255,159,10,.2);}
+.tln:hover .tld{transform:scale(1.35);}
+.tlc{background:var(--s2);border:1px solid var(--b);border-radius:18px;overflow:hidden;transition:border-color .3s,box-shadow .3s,transform .3s var(--sp);}
+.tlc:hover{box-shadow:0 10px 32px var(--sh);transform:translateX(4px);}
+.tln:nth-child(1) .tlc::before{content:'';display:block;height:2px;background:linear-gradient(90deg,var(--blue),transparent);}
+.tln:nth-child(2) .tlc::before{content:'';display:block;height:2px;background:linear-gradient(90deg,var(--green),transparent);}
+.tln:nth-child(3) .tlc::before{content:'';display:block;height:2px;background:linear-gradient(90deg,var(--orange),transparent);}
+.tln:nth-child(1) .tlc:hover{border-color:rgba(41,151,255,.35);}
+.tln:nth-child(2) .tlc:hover{border-color:rgba(48,209,88,.3);}
+.tln:nth-child(3) .tlc:hover{border-color:rgba(255,159,10,.3);}
+.tlc.open .tlb{display:block;}
+.tlh{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 1.6rem;gap:.8rem;flex-wrap:wrap;cursor:pointer;}
+.tll{flex:1;}
+.tlmr{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;margin-bottom:.35rem;}
+.tlp{font-size:.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:980px;display:inline-block;}
+.tln:nth-child(1) .tlp{color:var(--blue);background:rgba(41,151,255,.1);border:1px solid rgba(41,151,255,.2);}
+.tln:nth-child(2) .tlp{color:var(--green);background:rgba(48,209,88,.1);border:1px solid rgba(48,209,88,.2);}
+.tln:nth-child(3) .tlp{color:var(--orange);background:rgba(255,159,10,.1);border:1px solid rgba(255,159,10,.2);}
+.tllv{font-size:.6rem;font-weight:600;padding:2px 8px;border-radius:980px;}
+.tln:nth-child(1) .tllv{background:rgba(41,151,255,.07);border:1px solid rgba(41,151,255,.14);color:rgba(41,151,255,.85);}
+.tln:nth-child(2) .tllv{background:rgba(48,209,88,.07);border:1px solid rgba(48,209,88,.14);color:rgba(48,209,88,.85);}
+.tln:nth-child(3) .tllv{background:rgba(255,159,10,.07);border:1px solid rgba(255,159,10,.14);color:rgba(255,159,10,.85);}
+.tlr{font-size:1.02rem;font-weight:700;color:var(--t);}
+.tlco{font-size:.74rem;color:var(--t3);margin-top:2px;}
+.tltog{width:27px;height:27px;border-radius:50%;background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:.88rem;color:var(--t3);transition:transform .3s var(--sp),background .2s;flex-shrink:0;}
+.tln:nth-child(1) .tlc.open .tltog{transform:rotate(45deg);background:var(--blue);color:#fff;}
+.tln:nth-child(2) .tlc.open .tltog{transform:rotate(45deg);background:var(--green);color:#fff;}
+.tln:nth-child(3) .tlc.open .tltog{transform:rotate(45deg);background:var(--orange);color:#fff;}
+.tlb{display:none;padding:0 1.6rem 1.6rem;border-top:1px solid var(--b);animation:sld .38s var(--out);}
+@keyframes sld{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+.tlpts{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-top:1rem;}
+.tlpts li{font-size:.84rem;color:var(--t2);padding-left:1.1rem;position:relative;line-height:1.65;}
+.tln:nth-child(1) .tlpts li::before,.tln:nth-child(2) .tlpts li::before,.tln:nth-child(3) .tlpts li::before{content:'';position:absolute;left:0;top:.58em;width:5px;height:5px;border-radius:50%;}
+.tln:nth-child(1) .tlpts li::before{background:var(--blue);}
+.tln:nth-child(2) .tlpts li::before{background:var(--green);}
+.tln:nth-child(3) .tlpts li::before{background:var(--orange);}
+.kpis{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem;}
+.kpi{flex:1;min-width:100px;border-radius:10px;padding:.8rem 1rem;}
+.tln:nth-child(1) .kpi{background:rgba(41,151,255,.06);border:1px solid rgba(41,151,255,.12);}
+.tln:nth-child(2) .kpi{background:rgba(48,209,88,.06);border:1px solid rgba(48,209,88,.12);}
+.kn{font-size:1.4rem;font-weight:800;letter-spacing:-.03em;line-height:1;}
+.tln:nth-child(1) .kn{color:var(--blue);}
+.tln:nth-child(2) .kn{color:var(--green);}
+.kl{font-size:.65rem;color:var(--t3);margin-top:3px;}
+
+/* ── PROJECTS — 3D TILT ── */
+#projects{background:var(--bg);}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:2.5rem;}
+.pj{background:var(--s2);border:1px solid var(--b);border-radius:18px;padding:0;display:flex;flex-direction:column;overflow:hidden;position:relative;transition:border-color .3s,box-shadow .3s;}
+.pj::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(41,151,255,.08),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;}
+.pj:hover{box-shadow:0 20px 50px var(--sh);}
+.pj:hover::after{opacity:1;}
+.pjhb{padding:1.4rem 1.6rem 0;display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem;}
+.pjico{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.pjico.bl{background:rgba(41,151,255,.13);border:1px solid rgba(41,151,255,.2);}
+.pjico.gr{background:rgba(48,209,88,.11);border:1px solid rgba(48,209,88,.18);}
+.pjico.or{background:rgba(255,159,10,.11);border:1px solid rgba(255,159,10,.18);}
+.pjico.pu{background:rgba(175,82,222,.11);border:1px solid rgba(175,82,222,.18);}
+.pjst{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:980px;font-size:.6rem;font-weight:700;background:rgba(48,209,88,.1);border:1px solid rgba(48,209,88,.2);color:#30d158;}
+.pjsd{width:5px;height:5px;border-radius:50%;background:currentColor;}
+.pjb{padding:.85rem 1.6rem 1.5rem;flex:1;display:flex;flex-direction:column;}
+.pjnm{font-size:.94rem;font-weight:700;color:var(--t);margin-bottom:.18rem;}
+.pjorg{font-size:.66rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.55rem;}
+.pjdesc{font-size:.81rem;color:var(--t2);line-height:1.65;flex:1;}
+.pjchips{display:flex;flex-wrap:wrap;gap:5px;margin-top:.85rem;}
+.pch{padding:3px 8px;border-radius:980px;background:var(--s3);border:1px solid var(--b);font-size:.67rem;color:var(--t3);}
+.pj.big{grid-column:span 2;background:linear-gradient(135deg,#0d1a2d,#091428);border-color:rgba(41,151,255,.2);flex-direction:row;}
+.pj.big .pjhb{flex-direction:column;padding:1.7rem 0 0 1.7rem;min-width:130px;}
+.pj.big .pjico{width:60px;height:60px;font-size:1.9rem;}
+.pj.big .pjb{padding:1.7rem;border-left:1px solid rgba(255,255,255,.06);}
+.pj.big .pjnm{color:#fff;font-size:1.15rem;}
+.pj.big .pjdesc{color:rgba(255,255,255,.5);}
+.pj.big .pch{background:rgba(41,151,255,.1);border-color:rgba(41,151,255,.2);color:rgba(41,151,255,.9);}
+.pjstats{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.85rem;}
+.pjs{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:.4rem .65rem;text-align:center;}
+.pjsn{font-size:.88rem;font-weight:800;color:var(--blue);line-height:1;}
+.pjsl{font-size:.58rem;color:var(--t3);}
+
+/* ── CERTS ── */
+#certs{background:var(--s1);}
+.clist{display:flex;flex-direction:column;gap:9px;margin-top:2.2rem;}
+.cert{display:flex;align-items:center;gap:1.2rem;background:var(--s2);border:1px solid var(--b);border-radius:16px;padding:1.2rem 1.5rem;position:relative;overflow:hidden;transition:transform .3s var(--sp),box-shadow .3s;}
+.cert::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:3px 0 0 3px;opacity:0;transition:opacity .3s;}
+.cert:nth-child(1)::before{background:linear-gradient(180deg,var(--blue),#5ac8fa);}
+.cert:nth-child(2)::before{background:linear-gradient(180deg,#00b4db,#0077b5);}
+.cert:nth-child(3)::before{background:linear-gradient(180deg,#af52de,#7c3aed);}
+.cert:hover{transform:translateX(6px);box-shadow:0 6px 22px var(--sh);}
+.cert:hover::before{opacity:1;}
+.cert:nth-child(1):hover{border-color:rgba(41,151,255,.35);}
+.cert:nth-child(2):hover{border-color:rgba(0,180,219,.35);}
+.cert:nth-child(3):hover{border-color:rgba(124,58,237,.35);}
+.corb{width:46px;height:46px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.25rem;transition:transform .3s var(--sp);}
+.cert:hover .corb{transform:scale(1.08) rotate(-5deg);}
+.cert:nth-child(1) .corb{background:linear-gradient(135deg,#0a2d6f,#2997ff);box-shadow:0 4px 14px rgba(41,151,255,.28);}
+.cert:nth-child(2) .corb{background:linear-gradient(135deg,#0a4f8f,#00b4db);box-shadow:0 4px 14px rgba(0,180,219,.28);}
+.cert:nth-child(3) .corb{background:linear-gradient(135deg,#3b0764,#7c3aed);box-shadow:0 4px 14px rgba(124,58,237,.28);}
+.cbd{flex:1;}
+.cnm{font-size:.88rem;font-weight:700;color:var(--t);margin-bottom:.22rem;}
+.cmt{font-size:.7rem;color:var(--t3);line-height:1.5;}
+.cbadge{display:inline-flex;font-size:.61rem;font-weight:700;padding:2px 9px;border-radius:980px;margin-top:.3rem;}
+.cert:nth-child(1) .cbadge{background:rgba(41,151,255,.1);border:1px solid rgba(41,151,255,.2);color:var(--blue);}
+.cert:nth-child(2) .cbadge{background:rgba(0,180,219,.1);border:1px solid rgba(0,180,219,.2);color:#00b4db;}
+.cert:nth-child(3) .cbadge{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:#a78bfa;}
+.carr{margin-left:auto;color:var(--t3);font-size:1.2rem;transition:transform .2s,color .2s;}
+.cert:hover .carr{transform:translateX(4px);color:var(--blue);}
+
+/* ── ACHIEVEMENTS ── */
+#ach{background:var(--bg);position:relative;overflow:hidden;}
+#ach::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(41,151,255,.06),transparent 70%);pointer-events:none;}
+.agrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--b);border-radius:22px;overflow:hidden;border:1px solid var(--b);margin-top:2.5rem;}
+.acell{background:var(--s2);padding:2.2rem 1.4rem;text-align:center;position:relative;overflow:hidden;transition:background .25s;}
+.acell:hover{background:var(--s3);}
+.acell::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:55%;height:1px;background:linear-gradient(90deg,transparent,var(--blue),transparent);opacity:0;transition:opacity .3s;}
+.acell:hover::before{opacity:1;}
+.an{font-size:2.6rem;font-weight:800;letter-spacing:-.05em;color:var(--t);line-height:1;}
+.an .ac{color:var(--blue);}
+.al{font-size:.74rem;color:var(--t3);margin-top:6px;line-height:1.5;}
+
+/* ── EDUCATION ── */
+#edu{background:var(--s1);}
+.educard{display:flex;align-items:center;gap:1.8rem;flex-wrap:wrap;background:var(--s2);border:1px solid var(--b);border-radius:22px;padding:2rem 2.4rem;max-width:640px;margin-top:1.8rem;transition:border-color .3s,transform .3s var(--sp);}
+.educard:hover{border-color:var(--bh);transform:translateY(-4px);box-shadow:0 14px 40px var(--sh);}
+.eduorb{width:62px;height:62px;border-radius:50%;background:var(--s3);display:flex;align-items:center;justify-content:center;font-size:1.75rem;border:1px solid var(--bh);flex-shrink:0;}
+.edudeg{font-size:.96rem;font-weight:700;color:var(--t);}
+.edusch{font-size:.81rem;color:var(--blue);font-weight:500;margin-top:3px;}
+.eduyr{font-size:.74rem;color:var(--t3);margin-top:3px;}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg);position:relative;overflow:hidden;}
+[data-theme="dark"] #contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 80%,rgba(41,151,255,.08),transparent 60%);pointer-events:none;}
+.cthead{text-align:center;max-width:620px;margin:0 auto 2.8rem;}
+.cthead h2{margin-bottom:.8rem;}
+.cthead p{font-size:.95rem;color:var(--t3);line-height:1.7;margin-bottom:1.5rem;}
+.ctcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;max-width:820px;margin:0 auto;}
+.cc{background:var(--s2);border:1px solid var(--b);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column;align-items:center;text-align:center;transition:transform .3s var(--sp),border-color .3s,box-shadow .3s;}
+.cc:hover{transform:translateY(-6px);border-color:var(--bh);box-shadow:0 18px 44px var(--sh);}
+.cci{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:.8rem;}
+.cci.em{background:linear-gradient(135deg,#b31217,#e52d27);}
+.cci.li{background:linear-gradient(135deg,#0077b5,#0a9fdb);}
+.cci.gh{background:linear-gradient(135deg,#24292e,#57606a);}
+.cci.lc{background:linear-gradient(135deg,#11998e,#38ef7d);}
+.ccl{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--t3);}
+.ccv{font-size:.82rem;font-weight:600;color:var(--t);margin-top:3px;}
+
+/* ── HIRE POPUP ── */
+#hp{position:fixed;bottom:5.5rem;right:2rem;z-index:90;display:flex;align-items:center;gap:.6rem;padding:.85rem 1.3rem;background:linear-gradient(135deg,#1a3a6e,#0d2050);border:1px solid rgba(41,151,255,.4);border-radius:30px;box-shadow:0 8px 30px rgba(41,151,255,.3);opacity:0;transform:translateY(16px) scale(.92);pointer-events:none;transition:opacity .45s,transform .45s var(--sp);cursor:pointer;}
+#hp.show{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.hpem{font-size:1.1rem;animation:wave 1.2s ease-in-out infinite;}
+@keyframes wave{0%,100%{transform:rotate(-10deg);}50%{transform:rotate(10deg);}}
+.hptxt{font-size:.78rem;font-weight:700;color:#fff;}
+.hptxt span{color:var(--blue);}
+.hpx{background:none;border:none;color:rgba(255,255,255,.4);cursor:pointer;font-size:.82rem;padding:0;margin-left:.2rem;}
+
+/* ── FLOAT BTN ── */
+#fb{position:fixed;bottom:2rem;right:2rem;z-index:89;display:inline-flex;align-items:center;gap:6px;padding:10px 17px;background:var(--blue);color:#fff;font-size:.76rem;font-weight:700;border-radius:20px;box-shadow:0 6px 22px rgba(41,151,255,.4);opacity:0;pointer-events:none;transition:transform .25s,opacity .3s;}
+#fb.show{opacity:1;pointer-events:auto;}
+#fb:hover{transform:scale(1.04) translateY(-2px);}
+
+
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;z-index:9999;background:linear-gradient(90deg,#2997ff,#5ac8fa,#30d158);box-shadow:0 0 8px rgba(41,151,255,.6);transition:width .1s linear;pointer-events:none;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--b);padding:2.4rem 28px;background:var(--s1);}
+.footer-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1.5rem;}
+.footer-left{display:flex;flex-direction:column;gap:.35rem;}
+.footer-av{display:flex;align-items:center;gap:.7rem;}
+.footer-emoji{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,rgba(41,151,255,.2),rgba(41,151,255,.05));border:1.5px solid rgba(41,151,255,.3);display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.footer-nm{font-size:.88rem;font-weight:700;color:var(--t);}
+.footer-role{font-size:.72rem;color:var(--t3);}
+.footer-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.footer-links a{font-size:.73rem;color:var(--t3);transition:color .2s;display:flex;align-items:center;gap:4px;}
+.footer-links a:hover{color:var(--blue);}
+.footer-right{text-align:right;}
+.footer-copy{font-size:.69rem;color:var(--t3);}
+.footer-made{font-size:.66rem;color:var(--t3);margin-top:.2rem;opacity:.6;}
+.footer-made span{color:var(--blue);}
+@media(max-width:700px){.footer-inner{grid-template-columns:1fr;text-align:center;}.footer-av{justify-content:center;}.footer-right{text-align:center;}.footer-links{justify-content:center;}}
+
+/* ── YEAR BADGE ── */
+.pjyr{font-size:.62rem;font-weight:700;padding:2px 8px;border-radius:980px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.45);letter-spacing:.04em;text-align:center;}
+
+/* ── GITHUB PROJECT CARD ── */
+.pj.gh-card{border:1px dashed rgba(41,151,255,.3);background:linear-gradient(135deg,rgba(41,151,255,.04),rgba(41,151,255,.01));justify-content:center;}
+.pj.gh-card:hover{border-color:rgba(41,151,255,.5);background:linear-gradient(135deg,rgba(41,151,255,.08),rgba(41,151,255,.03));}
+.pjico.gh-ico{display:none;}
+
+/* ── CASE STUDY ── */
+#casestudy{background:var(--bg);}
+.cs-wrap{background:linear-gradient(135deg,#0d1a2d,#091428);border:1px solid rgba(41,151,255,.2);border-radius:24px;padding:2.8rem;position:relative;overflow:hidden;max-width:1080px;margin:2.5rem auto 0;}
+.cs-wrap::before{content:'';position:absolute;top:-30%;right:-8%;width:400px;height:400px;background:radial-gradient(circle,rgba(41,151,255,.1),transparent 60%);pointer-events:none;}
+.cs-sub{font-size:.82rem;color:rgba(255,255,255,.38);margin-bottom:2rem;}
+.pipeline{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;padding:1.1rem 1.4rem;background:rgba(0,0,0,.3);border-radius:14px;border:1px solid rgba(255,255,255,.05);}
+.pp-step{display:flex;flex-direction:column;align-items:center;gap:.3rem;flex:1;min-width:70px;}
+.pp-ic{width:38px;height:38px;border-radius:9px;background:rgba(41,151,255,.13);border:1px solid rgba(41,151,255,.22);display:flex;align-items:center;justify-content:center;font-size:.95rem;}
+.pp-nm{font-size:.6rem;color:rgba(255,255,255,.4);text-align:center;font-weight:500;}
+.pp-arr{color:rgba(41,151,255,.35);font-size:.9rem;flex-shrink:0;}
+.cs-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,.05);border-radius:14px;overflow:hidden;margin-bottom:2rem;}
+.cs-step{background:#0d1a2d;padding:1.3rem;}
+.cs-sn{font-size:.61rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem;}
+.cs-sh{font-size:.86rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
+.cs-st{font-size:.76rem;color:rgba(255,255,255,.38);line-height:1.6;}
+.cs-results{display:flex;gap:.85rem;flex-wrap:wrap;}
+.cs-r{background:rgba(41,151,255,.07);border:1px solid rgba(41,151,255,.18);border-radius:12px;padding:.85rem 1.2rem;text-align:center;flex:1;min-width:100px;}
+.cs-rn{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1;}
+.cs-rn em{color:var(--blue);font-style:normal;}
+.cs-rl{font-size:.67rem;color:rgba(255,255,255,.38);margin-top:3px;}
+
+/* ── CURRENTLY LEARNING ── */
+#learning{background:var(--s1);}
+.lrn-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:2.5rem;max-width:1080px;margin-left:auto;margin-right:auto;}
+.lc{background:var(--s2);border:1px solid var(--b);border-radius:20px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:transform .3s var(--sp),border-color .3s;}
+.lc:hover{transform:translateY(-4px);border-color:var(--bh);}
+.lc.hot{border-color:rgba(41,151,255,.2);background:linear-gradient(135deg,rgba(41,151,255,.07),rgba(41,151,255,.02));}
+.lc-ico{font-size:1.7rem;flex-shrink:0;animation:spin 8s linear infinite;}
+@keyframes spin{0%,85%{transform:rotate(0deg);}90%{transform:rotate(360deg);}100%{transform:rotate(360deg);}}
+.lc-lbl{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:.4rem;}
+.lc-ttl{font-size:.96rem;font-weight:700;color:var(--t);margin-bottom:.6rem;}
+.lc-tags{display:flex;flex-wrap:wrap;gap:.4rem;}
+.lct{padding:3px 10px;border-radius:980px;background:var(--s3);border:1px solid var(--b);font-size:.71rem;color:var(--t2);font-weight:500;}
+.lct.hot{background:rgba(41,151,255,.1);border-color:rgba(41,151,255,.2);color:var(--blue);}
+.lc-book{font-size:.92rem;font-weight:700;color:var(--t);margin-bottom:.18rem;}
+.lc-auth{font-size:.76rem;color:var(--t3);margin-bottom:.5rem;}
+.lc-quote{font-size:.78rem;color:var(--t2);font-style:italic;line-height:1.6;border-left:2px solid var(--blue);padding-left:.75rem;}
+@media(max-width:700px){.lrn-grid{grid-template-columns:1fr;}}
+
+/* ── TESTIMONIAL ── */
+#testimonial{background:var(--bg);position:relative;overflow:hidden;}
+[data-theme="dark"] #testimonial::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(41,151,255,.05),transparent 70%);pointer-events:none;}
+.tcard{max-width:720px;margin:2.5rem auto 0;background:var(--s2);border:1px solid var(--b);border-radius:24px;padding:2.8rem;position:relative;text-align:center;}
+.tqm{font-size:5rem;line-height:.7;color:var(--blue);opacity:.25;font-family:Georgia,serif;position:absolute;top:1.4rem;left:2rem;}
+.ttxt{font-size:1.02rem;color:var(--t2);line-height:1.8;font-style:italic;margin-bottom:1.8rem;position:relative;z-index:1;}
+.tauth{display:flex;align-items:center;justify-content:center;gap:.9rem;}
+.tav{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#1a3a6e,#2997ff);display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.tnm{font-size:.88rem;font-weight:700;color:var(--t);}
+.ttl{font-size:.74rem;color:var(--t3);margin-top:2px;}
+.ttip{margin-top:1.4rem;padding:.9rem 1.3rem;background:rgba(255,159,10,.07);border:1px solid rgba(255,159,10,.18);border-radius:12px;font-size:.78rem;color:var(--orange);line-height:1.6;text-align:left;max-width:720px;margin-left:auto;margin-right:auto;}
+
+/* ── ACTIVE NAV ── */
+.nlinks a.active{color:var(--t);}
+.nlinks a.active::after{transform:scaleX(1);transform-origin:left;}
+@media(max-width:900px){
+  .ablay{grid-template-columns:1fr;}
+  .skills-wrap{grid-template-columns:1fr;}
+  .bento{grid-template-columns:repeat(2,1fr);}
+  .bc.c6,.bc.c4,.bc.c3,.bc.c2{grid-column:span 2;}
+  .pj.big{grid-column:span 2;flex-direction:column;}
+  .hstats{flex-wrap:wrap;}.hstat{flex:0 0 44%;border-right:none;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:1.2rem;}
+  nav .nlinks{display:none;}.burger{display:flex;}
+}
+@media(max-width:560px){
+  .bento{grid-template-columns:1fr;}.bc.c6,.bc.c4,.bc.c3,.bc.c2{grid-column:span 1;}
+  .pgrid{grid-template-columns:1fr;}.pj.big{grid-column:span 1;flex-direction:column;}
+  .hstat{flex:0 0 100%;}
+  #hp,#fb{display:none;}
+  .skills-wrap{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+  <div class="ld-bar-wrap"><div class="ld-bar" id="lbar"></div></div>
+  <div class="ld-txt">Loading Portfolio</div>
+</div>
+<div id="prog"></div>
+<div id="cdot"></div>
+<div id="cring"></div>
+
+<nav id="mnav">
+  <span class="nlogo">Rohini<span>.</span></span>
+  <ul class="nlinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#exp">Experience</a></li>
+    <li><a href="#casestudy">Case Study</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://github.com/Rohini-shrisha" target="_blank">GitHub</a></li>
+  </ul>
+  <div class="nr">
+    <button class="tbtn" id="tbtn">🌙</button>
+    <a href="#" class="ndl" onclick="alert('Add your resume PDF link here');return false;">↓ Resume</a>
+    <a href="/cdn-cgi/l/email-protection#4f3c3d20272621267e7d797d7f7f7f0f28222e2623612c2022" class="nhire" onclick="boom(event)">Hire Me →</a>
+    <button class="burger" id="burg" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mmenu" id="mm">
+  <a href="#about" onclick="closeNav()">About</a>
+  <a href="#skills" onclick="closeNav()">Skills</a>
+  <a href="#exp" onclick="closeNav()">Experience</a>
+  <a href="#projects" onclick="closeNav()">Projects</a>
+  <a href="#certs" onclick="closeNav()">Certifications</a>
+  <a href="#contact" onclick="closeNav()">Contact</a>
+  <a href="https://github.com/Rohini-shrisha" target="_blank" onclick="closeNav()">GitHub</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="aur a1"></div><div class="aur a2"></div><div class="aur a3"></div>
+  <div class="hgrid"></div>
+  <div class="av-wrap">
+    <div class="av-ring-outer"></div>
+    <div class="av-ring-dash"></div>
+    <div class="av-ring">👩‍💻</div>
+    <span class="avf" style="top:-4px;right:-14px;animation-delay:0s">⚙️</span>
+    <span class="avf" style="bottom:2px;left:-18px;animation-delay:1.2s">🚗</span>
+    <span class="avf" style="bottom:-6px;right:-8px;animation-delay:2.4s">✨</span>
+  </div>
+  <div class="hbadge"><span class="bdot"></span>Open to opportunities · Bengaluru, India</div>
+  <h1 class="hname">Rohini Shrisha S<br><span class="grad">Quality Engineer</span></h1>
+  <p class="hrole"><strong>Automotive Infotainment · Embedded Systems · CAN Protocol</strong><br>3+ years at Bosch Global Software Technologies (BGSW)</p>
+  <div class="htw"><span id="tw"></span><span class="twc"></span></div>
+  <div class="hcta">
+    <a href="#exp" class="btnp">View Experience ↓</a>
+    <a href="#" class="btng" onclick="alert('Add your resume PDF link here');return false;">↓ Resume</a>
+    <a href="#contact" class="btng">Get In Touch</a>
+  </div>
+  <div class="hstats">
+    <div class="hstat"><div class="hsn"><span id="hs1">0</span><span class="ac">+</span></div><div class="hsl">Years at Bosch</div></div>
+    <div class="hstat"><div class="hsn"><span id="hs2">0</span><span class="ac">%</span></div><div class="hsl">Faster Deployments</div></div>
+    <div class="hstat"><div class="hsn"><span id="hs3">0</span><span class="ac">%</span></div><div class="hsl">Fewer Incidents</div></div>
+    <div class="hstat"><div class="hsn"><span id="hs4">0</span><span class="ac">+</span></div><div class="hsl">Defects Tracked</div></div>
+  </div>
+  <div class="scue"><div class="sm"><div class="sw"></div></div><span class="stxt">Scroll</span></div>
+</section>
+
+<div class="wave" style="background:#000;"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,22 C360,44 1080,0 1440,22 L1440,44 L0,44Z" fill="var(--bg)"/></svg></div>
+
+<div id="ot"><div class="otc rv">
+  <div class="otd"></div>
+  <div><div class="otl">Open To</div><div class="otr"><span>Automotive Infotainment QA</span><span>Embedded Systems Test Engineer</span><span>ADAS QA</span><span>Software Test Engineer</span></div></div>
+  <div class="otloc"><span>📍 Bengaluru</span><span>🌐 Remote / Hybrid</span></div>
+</div></div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="si"><div class="ablay">
+  <div class="idcard rv">
+    <div class="idav">👩‍💻</div>
+    <div class="idnm">Rohini Shrisha S</div>
+    <div class="idti">Software Engineer · Bosch BGSW</div>
+    <div class="idsep"></div>
+    <div class="idrows">
+      <div class="idrow"><div class="idic">📍</div><span class="idrv">Bengaluru, Karnataka, India</span></div>
+      <div class="idrow"><div class="idic">🎓</div><span class="idrv">B.Tech EEE · REVA University</span></div>
+      <div class="idrow"><div class="idic">🏢</div><span class="idrv">Bosch Global Software Technologies (BGSW)</span></div>
+      <div class="idrow"><div class="idic">✉️</div><span class="idrv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d8abaab7b0b1b6b1e9eaeeeae8e8e898bfb5b9b1b4f6bbb7b5">[email&#160;protected]</a></span></div>
+      <div class="idrow"><div class="idic">💼</div><span class="idrv"><a href="https://linkedin.com/in/rohini-shrisha-35b16b211" target="_blank" style="color:var(--blue);">linkedin/rohini-shrisha</a></span></div>
+      <div class="idrow"><div class="idic">🐙</div><span class="idrv"><a href="https://github.com/Rohini-shrisha" target="_blank" style="color:var(--blue);">github.com/Rohini-shrisha</a></span></div>
+    </div>
+    <div class="idavail"><span class="idavd"></span>Available for new roles</div>
+  </div>
+  <div class="abtxt">
+    <div class="ey rv">About Me</div>
+    <h2 class="st rv">Built to find<br><span class="mu">what breaks things.</span></h2>
+    <p class="rv d1">I'm a Software Engineer at <strong>Bosch Global Software Technologies (BGSW)</strong> with 3+ years of expertise in embedded system validation, hardware testing, and release governance for large-scale IoT platforms.</p>
+    <p class="rv d2">My superpower is precision — validating PCB boards under thermal stress, scripting Python automation for audit pipelines, achieving <em>40% faster deployments</em> and <em>50% fewer production incidents</em>.</p>
+    <p class="rv d3">Actively advancing into <strong>Automotive Infotainment</strong> — CAN FD, IVI architecture, HMI testing, vehicle connectivity — bridging embedded QA depth with automotive software.</p>
+    <p class="rv d4" style="font-size:.95rem;color:var(--blue);font-weight:500;border-left:2px solid var(--blue);padding-left:.9rem;margin-top:.5rem;line-height:1.7;">"I chose automotive QA because a bug in a vehicle isn't just a defect — it's a safety risk. That responsibility drives my obsession with getting it right every time."</p>
+    <div class="pills rv d4">
+      <span class="pill">CAN 2.0A/B · CAN FD</span><span class="pill">IBM ALM · JIRA</span>
+      <span class="pill">Python Automation</span><span class="pill">Automotive IVI</span>
+      <span class="pill">PCB Validation</span><span class="pill">Agile QA</span><span class="pill">ISTQB-aligned</span>
+    </div>
+  </div>
+</div></div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="si">
+  <div class="ey rv">Technical Expertise</div>
+  <h2 class="st rv">Precision tools for<br><span class="mu">every challenge.</span></h2>
+  <div class="skills-wrap">
+    <div>
+      <div class="bento">
+        <div class="bc c6 bt rv"><div class="bci">🚗</div><div class="bcl">Automotive &amp; Infotainment</div><div class="bctags"><span class="bct">IVI Architecture</span><span class="bct">HMI Systems</span><span class="bct">Bluetooth/WiFi</span><span class="bct">CarPlay/Android Auto</span><span class="bct">Camera Systems</span><span class="bct">ECU Communication</span></div></div>
+        <div class="bc c4 dk rv d1"><div class="bci">📡</div><div class="bcl">Protocols</div><div class="bctags"><span class="bct">CAN 2.0A/2.0B</span><span class="bct">CAN FD</span><span class="bct">UDS ISO 14229</span><span class="bct">Vector CANoe</span></div></div>
+        <div class="bc c2 st dk rv d2"><div class="bbig"><span class="col">40</span>%</div><div class="bcap">Faster deploys</div></div>
+        <div class="bc c4 rv d1"><div class="bci">🧪</div><div class="bcl">Testing Types</div><div class="bctags"><span class="bct">Functional</span><span class="bct">Regression</span><span class="bct">Integration</span><span class="bct">System</span><span class="bct">PCB Validation</span><span class="bct">Thermal</span><span class="bct">Hi/Lo Voltage</span></div></div>
+        <div class="bc c2 st rv d2"><div class="bbig"><span class="col">3</span>+</div><div class="bcap">Years Bosch</div></div>
+        <div class="bc c4 rv"><div class="bci">📋</div><div class="bcl">Process</div><div class="bctags"><span class="bct">Agile/Scrum</span><span class="bct">SDLC</span><span class="bct">Config Mgmt</span><span class="bct">Req. Traceability</span><span class="bct">Quality Gate</span><span class="bct">ISTQB</span></div></div>
+        <div class="bc c2 dk rv d1"><div class="bci">💻</div><div class="bcl">Code</div><div class="bctags"><span class="bct">Python</span><span class="bct">C</span></div></div>
+      </div>
+      <div class="sbars rv" style="margin-top:1rem;">
+        <div class="sbi"><div class="sbh"><span>Embedded Systems QA</span><span>92%</span></div><div class="sbt"><div class="sbf" data-w="92"></div></div></div>
+        <div class="sbi"><div class="sbh"><span>IBM ALM / JIRA</span><span>90%</span></div><div class="sbt"><div class="sbf" data-w="90"></div></div></div>
+        <div class="sbi"><div class="sbh"><span>CAN Protocol</span><span>85%</span></div><div class="sbt"><div class="sbf" data-w="85"></div></div></div>
+        <div class="sbi"><div class="sbh"><span>Python Automation</span><span>80%</span></div><div class="sbt"><div class="sbf" data-w="80"></div></div></div>
+        <div class="sbi"><div class="sbh"><span>Automotive IVI</span><span>72%</span></div><div class="sbt"><div class="sbf" data-w="72"></div></div></div>
+      </div>
+    </div>
+    <div class="radar-card rv d2">
+      <div class="radar-ttl">Skill Radar</div>
+      <svg id="radar" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="wave" style="background:var(--bg);"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,14 C480,44 960,0 1440,28 L1440,44 L0,44Z" fill="var(--s1)"/></svg></div>
+
+<!-- EXPERIENCE -->
+<section id="exp">
+<div class="si">
+  <div class="ey rv">Work Experience</div>
+  <h2 class="st rv">3 years at <span class="gr">Bosch BGSW.</span></h2>
+  <div class="tl">
+    <div class="tln rv">
+      <div class="tld"></div>
+      <div class="tlc open">
+        <div class="tlh" onclick="tog(this)">
+          <div class="tll"><div class="tlmr"><div class="tlp">Feb 2024 — Present</div><span class="tllv">⬆ Senior Level</span></div><div class="tlr">Software Engineer — Configuration Management</div><div class="tlco">Bosch Global Software Technologies (BGSW) · Bengaluru</div></div>
+          <div class="tltog">+</div>
+        </div>
+        <div class="tlb">
+          <ul class="tlpts">
+            <li>Managed end-to-end configuration management and release validation for large-scale Smart Metering and IoT-based embedded platforms.</li>
+            <li>Maintained requirement, design, code, and test case traceability using IBM ALM, supporting Quality Gate (QG) compliance for <strong>Cloud-Nexus platform</strong> releases.</li>
+            <li>Developed Python-based automated scripts for configuration audit checks, improving traceability efficiency and reducing manual effort.</li>
+            <li>Implemented workflow automation achieving a <strong>40% reduction in deployment time</strong> and <strong>50% decrease in production incidents</strong>.</li>
+            <li>Coordinated cross-functional task allocation across hardware, firmware, and software teams in Agile environment.</li>
+            <li>Participated in ISTQB-aligned QA process improvements, enhancing test coverage and defect detection rates.</li>
+          </ul>
+          <div class="kpis"><div class="kpi"><div class="kn">40%</div><div class="kl">Deploy time cut</div></div><div class="kpi"><div class="kn">50%</div><div class="kl">Fewer incidents</div></div><div class="kpi"><div class="kn">~60%</div><div class="kl">Audit effort saved</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tln rv d1">
+      <div class="tld"></div>
+      <div class="tlc">
+        <div class="tlh" onclick="tog(this)">
+          <div class="tll"><div class="tlmr"><div class="tlp">Apr 2023 — Jan 2024</div><span class="tllv">↗ Mid Level</span></div><div class="tlr">Associate Software Engineer</div><div class="tlco">Bosch Global Software Technologies (BGSW) · Bengaluru</div></div>
+          <div class="tltog">+</div>
+        </div>
+        <div class="tlb">
+          <ul class="tlpts">
+            <li>Designed and executed functional, regression, integration, and system test cases for embedded Smart Metering hardware and software modules.</li>
+            <li>Performed PCB validation including flashing &amp; calibration testing, thermal chamber testing, and high/low voltage testing.</li>
+            <li>Managed complete defect lifecycle using IBM ALM and JIRA — from logging and root cause analysis to resolution tracking.</li>
+            <li>Assisted in exploratory testing, hardware validation, and technical documentation for Smart Metering projects.</li>
+            <li>Executed embedded system validation and contributed to test plans, test cases, and validation reports.</li>
+          </ul>
+          <div class="kpis"><div class="kpi"><div class="kn">300+</div><div class="kl">Test cases written</div></div><div class="kpi"><div class="kn">200+</div><div class="kl">Defects managed</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="tln rv d2">
+      <div class="tld"></div>
+      <div class="tlc">
+        <div class="tlh" onclick="tog(this)">
+          <div class="tll"><div class="tlmr"><div class="tlp">Jan 2023 — Mar 2023</div><span class="tllv">🌱 Entry Level</span></div><div class="tlr">Software Engineer Trainee</div><div class="tlco">Bosch Global Software Technologies (BGSW) · Bengaluru</div></div>
+          <div class="tltog">+</div>
+        </div>
+        <div class="tlb">
+          <ul class="tlpts">
+            <li>Completed structured SDLC and Embedded System Testing training with hands-on <strong>STM32 microcontroller</strong> development for automotive control simulations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="wave" style="background:var(--s1);"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,28 C360,0 1080,44 1440,18 L1440,44 L0,44Z" fill="var(--bg)"/></svg></div>
+
+<!-- CASE STUDY -->
+<section id="casestudy">
+<div class="si">
+  <div class="ey rv">Case Study</div>
+  <h2 class="st rv">How I cut deployment time<br><span class="gr">by 40% at Bosch.</span></h2>
+  <div class="cs-wrap rv">
+    <div class="cs-sub">Cloud-Nexus Platform · Configuration Management · 2024</div>
+    <div class="pipeline">
+      <div class="pp-step"><div class="pp-ic">📝</div><div class="pp-nm">Req. Traceability</div></div><div class="pp-arr">→</div>
+      <div class="pp-step"><div class="pp-ic">🐍</div><div class="pp-nm">Python Audit Scripts</div></div><div class="pp-arr">→</div>
+      <div class="pp-step"><div class="pp-ic">✅</div><div class="pp-nm">Quality Gate</div></div><div class="pp-arr">→</div>
+      <div class="pp-step"><div class="pp-ic">📋</div><div class="pp-nm">IBM ALM Sign-off</div></div><div class="pp-arr">→</div>
+      <div class="pp-step"><div class="pp-ic">🚀</div><div class="pp-nm">Auto Deploy</div></div><div class="pp-arr">→</div>
+      <div class="pp-step"><div class="pp-ic">📊</div><div class="pp-nm">Audit Report</div></div>
+    </div>
+    <div class="cs-steps">
+      <div class="cs-step"><div class="cs-sn">01 · Problem</div><div class="cs-sh">Manual processes causing delays</div><div class="cs-st">Deployments were slow, error-prone, and audit trails maintained manually — causing bottlenecks and production incidents across every release cycle.</div></div>
+      <div class="cs-step"><div class="cs-sn">02 · Approach</div><div class="cs-sh">Python + IBM ALM automation</div><div class="cs-st">Built Python audit scripts, standardised Quality Gate checklists, and automated deployment pipeline validation — eliminating repetitive manual steps.</div></div>
+      <div class="cs-step"><div class="cs-sn">03 · Execution</div><div class="cs-sh">Agile cross-team coordination</div><div class="cs-st">Daily task tracking across hardware, firmware, and software Agile teams — enforcing release gates before every build to prevent late-stage defects.</div></div>
+      <div class="cs-step"><div class="cs-sn">04 · Result</div><div class="cs-sh">Measurable, sustained improvement</div><div class="cs-st">40% faster deployments + 50% fewer incidents in 6 months. Framework became the standard process for all Cloud-Nexus releases going forward.</div></div>
+    </div>
+    <div class="cs-results">
+      <div class="cs-r"><div class="cs-rn"><em>40</em>%</div><div class="cs-rl">Faster Deploys</div></div>
+      <div class="cs-r"><div class="cs-rn"><em>50</em>%</div><div class="cs-rl">Fewer Incidents</div></div>
+      <div class="cs-r"><div class="cs-rn"><em>~60</em>%</div><div class="cs-rl">Audit Effort Saved</div></div>
+      <div class="cs-r"><div class="cs-rn"><em>3</em></div><div class="cs-rl">Release Cycles</div></div>
+    </div>
+  </div>
+</div>
+</section>
+<section id="projects">
+<div class="si">
+  <div class="ey rv">Key Projects</div>
+  <h2 class="st rv">Validated <span class="mu">in the field.</span></h2>
+  <div class="pgrid">
+    <div class="pj big rv tilt">
+      <div class="pjhb"><div class="pjico bl">☁️</div><div style="display:flex;flex-direction:column;gap:.35rem;margin-top:.5rem;"><div class="pjst"><span class="pjsd"></span>Delivered</div><div class="pjyr">2024</div></div></div>
+      <div class="pjb"><div class="pjnm">Cloud-Nexus Platform — Release &amp; Audit Support</div><div class="pjorg">Bosch BGSW · Configuration Management</div><p class="pjdesc">Managed RTDC activities in IBM ALM supporting audit compliance. Updated Quality Gate checklists and coordinated daily task tracking — directly achieving 40% deployment improvement and 50% incident reduction.</p><div class="pjstats"><div class="pjs"><div class="pjsn">40%</div><div class="pjsl">Faster deploys</div></div><div class="pjs"><div class="pjsn">50%</div><div class="pjsl">Fewer incidents</div></div><div class="pjs"><div class="pjsn">~60%</div><div class="pjsl">Audit saved</div></div></div><div class="pjchips"><span class="pch">IBM ALM</span><span class="pch">Quality Gate</span><span class="pch">Python</span><span class="pch">Release Governance</span></div></div>
+    </div>
+    <div class="pj rv d1 tilt"><div class="pjhb"><div class="pjico bl">📡</div><div style="display:flex;flex-direction:column;gap:.35rem;"><div class="pjst"><span class="pjsd"></span>Delivered</div><div class="pjyr">2024</div></div></div><div class="pjb"><div class="pjnm">AMI – Configuration &amp; IBM ALM Tool Management</div><div class="pjorg">Bosch BGSW · Config Management</div><p class="pjdesc">Maintained end-to-end Requirement, Test Case, Design, and Code traceability in IBM ALM. Led QG preparation and provided audit support for AMI platform releases.</p><div class="pjchips"><span class="pch">IBM ALM</span><span class="pch">RTDC</span><span class="pch">QG Preparation</span></div></div></div>
+    <div class="pj rv d2 tilt"><div class="pjhb"><div class="pjico gr">🏙️</div><div style="display:flex;flex-direction:column;gap:.35rem;"><div class="pjst"><span class="pjsd"></span>Delivered</div><div class="pjyr">2024</div></div></div><div class="pjb"><div class="pjnm">AMI – Meter Maintenance, Rajasthan ENV</div><div class="pjorg">Bosch BGSW · Field Operations</div><p class="pjdesc">Managed meter commissioning, operational mode conversion, and SLA reporting for large-scale Advanced Metering Infrastructure field deployments.</p><div class="pjchips"><span class="pch">AMI</span><span class="pch">Commissioning</span><span class="pch">SLA Reporting</span></div></div></div>
+    <div class="pj rv d1 tilt"><div class="pjhb"><div class="pjico gr">🔋</div><div style="display:flex;flex-direction:column;gap:.35rem;"><div class="pjst"><span class="pjsd"></span>Delivered</div><div class="pjyr">2023</div></div></div><div class="pjb"><div class="pjnm">Smart Metering — DCU PCB Board Validation</div><div class="pjorg">Bosch BGSW · Hardware Testing</div><p class="pjdesc">Executed high/low voltage testing and PCB validation for Data Concentrator Unit boards. Validated PCB assembly ensuring compliance with embedded system standards.</p><div class="pjchips"><span class="pch">PCB Validation</span><span class="pch">Voltage Testing</span><span class="pch">Embedded HW</span></div></div></div>
+    <div class="pj rv d2 tilt"><div class="pjhb"><div class="pjico or">🌡️</div><div style="display:flex;flex-direction:column;gap:.35rem;"><div class="pjst"><span class="pjsd"></span>Delivered</div><div class="pjyr">2023</div></div></div><div class="pjb"><div class="pjnm">Phantom TAQI Sensor — Thermal Validation</div><div class="pjorg">Bosch BGSW · IoT Testing</div><p class="pjdesc">Thermal chamber testing from -40°C to +85°C for IoT sensor modules. Full temperature validation documentation aligned with hardware test protocols.</p><div class="pjchips"><span class="pch">Thermal Chamber</span><span class="pch">IoT Sensors</span><span class="pch">Test Docs</span></div></div></div>
+    <div class="pj rv d3 tilt"><div class="pjhb"><div class="pjico pu">🔍</div><div style="display:flex;flex-direction:column;gap:.35rem;"><div class="pjst"><span class="pjsd"></span>Delivered</div><div class="pjyr">2023</div></div></div><div class="pjb"><div class="pjnm">Phantom Edge — Manual Hardware Testing</div><div class="pjorg">Bosch BGSW · Embedded Testing</div><p class="pjdesc">Manual hardware testing and validation. Developed comprehensive test cases and performed end-to-end defect tracking for product quality and release readiness.</p><div class="pjchips"><span class="pch">Manual Testing</span><span class="pch">Test Cases</span><span class="pch">Defect Tracking</span></div></div></div>
+    <div class="pj rv d4 tilt"><div class="pjhb"><div class="pjico or">⚡</div><div style="display:flex;flex-direction:column;gap:.35rem;"><div class="pjst"><span class="pjsd"></span>Delivered</div><div class="pjyr">2023</div></div></div><div class="pjb"><div class="pjnm">Vivary — Flashing &amp; Calibration Testing</div><div class="pjorg">Bosch BGSW · Embedded Testing</div><p class="pjdesc">Flashing, calibration testing and functional validation. Prepared detailed defect reports supporting product sign-off and release validation.</p><div class="pjchips"><span class="pch">Flashing</span><span class="pch">Calibration</span><span class="pch">Defect Reports</span></div></div></div>
+    <div class="pj gh-card rv tilt">
+      <div class="pjb" style="justify-content:center;align-items:center;text-align:center;padding:2rem 1.6rem;">
+        <div style="font-size:2rem;margin-bottom:.8rem;">🔒</div>
+        <div class="pjnm" style="margin-bottom:.5rem;">Confidential Work</div>
+        <p class="pjdesc" style="margin-bottom:.8rem;">Most of my Bosch projects are under NDA and cannot be shared publicly. The work above represents what I can describe from those engagements.</p>
+        <p class="pjdesc" style="margin-bottom:1.2rem;font-size:.75rem;color:var(--blue);">Personal projects &amp; learning repos coming soon on GitHub.</p>
+        <a href="https://github.com/Rohini-shrisha" target="_blank" class="btnp" style="font-size:.76rem;padding:9px 18px;">View GitHub →</a>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="wave" style="background:var(--bg);"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,20 C480,44 960,0 1440,32 L1440,44 L0,44Z" fill="var(--s1)"/></svg></div>
+
+<!-- CERTS -->
+<section id="certs">
+<div class="si">
+  <div class="ey rv">Certifications</div>
+  <h2 class="st rv">Always <span class="mu">learning.</span></h2>
+  <div class="clist">
+    <div class="cert rv"><a href="https://www.udemy.com/course/automotive-infotainment/" target="_blank" style="display:contents;"><div class="corb">🚗</div><div class="cbd"><div class="cnm">Introduction to Automotive Infotainment (IVI) for Beginners</div><div class="cmt">Udemy · 2026 · Audio, Bluetooth, WiFi, Projection, HMI, Automotive Software Stack</div><div class="cbadge">✓ Completed 2026</div></div><div class="carr">›</div></a></div>
+    <div class="cert rv d1"><a href="https://www.udemy.com/course/can-protocol/" target="_blank" style="display:contents;"><div class="corb">📡</div><div class="cbd"><div class="cnm">Master CAN Protocol Completely from Scratch (CAN + CAN FD)</div><div class="cmt">Udemy · CAN 2.0A/B, CAN FD, ECU Networking, Frame Structure, Error Handling</div><div class="cbadge">✓ Completed</div></div><div class="carr">›</div></a></div>
+    <div class="cert rv d2"><a href="https://www.udemy.com/course/software-testing-automation/" target="_blank" style="display:contents;"><div class="corb">🤖</div><div class="cbd"><div class="cnm">Manual &amp; Automation Software Testing with Gen AI</div><div class="cmt">Udemy · Test Case Design, Functional Testing, AI-assisted Testing Frameworks</div><div class="cbadge">✓ Completed</div></div><div class="carr">›</div></a></div>
+  </div>
+</div>
+</section>
+
+<!-- CURRENTLY LEARNING -->
+<section id="learning">
+<div class="si">
+  <div class="ey rv">Currently Learning</div>
+  <h2 class="st rv">Always <span class="mu">growing.</span></h2>
+  <div class="lrn-grid">
+    <div class="lc hot rv">
+      <div class="lc-ico">🚗</div>
+      <div>
+        <div class="lc-lbl">Expanding Into</div>
+        <div class="lc-ttl">Automotive Domains</div>
+        <div class="lc-tags">
+          <span class="lct hot">Vector CANoe (Advanced)</span>
+          <span class="lct hot">AUTOSAR Basics</span>
+          <span class="lct hot">UDS Protocol Testing</span>
+          <span class="lct">CAPL Scripting</span>
+          <span class="lct">HIL Testing</span>
+          <span class="lct">DoIP / Ethernet Diagnostics</span>
+          <span class="lct">ASPICE Process</span>
+        </div>
+      </div>
+    </div>
+    <div class="lc rv d1">
+      <div class="lc-ico">📖</div>
+      <div>
+        <div class="lc-lbl">Currently Reading</div>
+        <div class="lc-book">The Art of Software Testing</div>
+        <div class="lc-auth">by Glenford J. Myers</div>
+        <div class="lc-quote">"Great QA engineers are built through deliberate study of failure."</div>
+        <div class="lc-tags" style="margin-top:.7rem">
+          <span class="lct">Test Design</span><span class="lct">QA Craft</span><span class="lct">Bug Psychology</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="wave" style="background:var(--s1);"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,20 C360,44 1080,0 1440,28 L1440,44 L0,44Z" fill="var(--bg)"/></svg></div>
+<section id="ach">
+<div class="si">
+  <div class="ey rv" style="justify-content:center">Impact</div>
+  <h2 class="st rv" style="text-align:center">Numbers that <span class="gr">define the work.</span></h2>
+  <div class="agrid rv">
+    <div class="acell"><div class="an"><span class="acnt" data-v="40">0</span><span class="ac">%</span></div><div class="al">Reduction in deployment time via pipeline automation</div></div>
+    <div class="acell"><div class="an"><span class="acnt" data-v="50">0</span><span class="ac">%</span></div><div class="al">Decrease in production incidents through release governance</div></div>
+    <div class="acell"><div class="an"><span class="acnt" data-v="200">0</span><span class="ac">+</span></div><div class="al">Defects tracked and closed across product releases</div></div>
+    <div class="acell"><div class="an"><span class="acnt" data-v="300">0</span><span class="ac">+</span></div><div class="al">Test cases designed and executed across projects</div></div>
+    <div class="acell"><div class="an"><span class="acnt" data-v="3">0</span></div><div class="al">Industry certifications completed</div></div>
+  </div>
+</div>
+</section>
+
+<div class="wave" style="background:var(--bg);"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,28 C360,5 1080,44 1440,16 L1440,44 L0,44Z" fill="var(--s1)"/></svg></div>
+
+<!-- EDUCATION -->
+<section id="edu">
+<div class="si">
+  <div class="ey rv">Education</div>
+  <h2 class="st rv">Strong <span class="mu">foundations.</span></h2>
+  <div class="educard rv">
+    <div class="eduorb">🎓</div>
+    <div>
+      <div class="edudeg">Bachelor of Technology — Electrical &amp; Electronics Engineering</div>
+      <div class="edusch">REVA University, Bengaluru</div>
+      <div class="eduyr">Aug 2018 – Jun 2022</div>
+      <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem;">
+        <span style="padding:3px 9px;border-radius:980px;background:rgba(41,151,255,.08);border:1px solid rgba(41,151,255,.16);font-size:.68rem;color:var(--blue);">Embedded Systems</span>
+        <span style="padding:3px 9px;border-radius:980px;background:rgba(41,151,255,.08);border:1px solid rgba(41,151,255,.16);font-size:.68rem;color:var(--blue);">Microprocessors</span>
+        <span style="padding:3px 9px;border-radius:980px;background:rgba(41,151,255,.08);border:1px solid rgba(41,151,255,.16);font-size:.68rem;color:var(--blue);">Control Systems</span>
+        <span style="padding:3px 9px;border-radius:980px;background:rgba(41,151,255,.08);border:1px solid rgba(41,151,255,.16);font-size:.68rem;color:var(--blue);">Circuit Design</span>
+        <span style="padding:3px 9px;border-radius:980px;background:rgba(41,151,255,.08);border:1px solid rgba(41,151,255,.16);font-size:.68rem;color:var(--blue);">Digital Electronics</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="wave" style="background:var(--s1);"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,14 C480,44 960,0 1440,28 L1440,44 L0,44Z" fill="var(--bg)"/></svg></div>
+
+<!-- TESTIMONIAL -->
+<section id="testimonial">
+<div class="si">
+  <div class="ey rv" style="justify-content:center">Testimonial</div>
+  <h2 class="st rv" style="text-align:center">What <span class="mu">colleagues say.</span></h2>
+  <div class="tcard rv">
+    <div class="tqm">"</div>
+    <p class="ttxt">I had the pleasure of working with Rohini at Bosch Global Software Technologies. She is a dedicated and detail-oriented engineer with strong technical skills in testing and quality assurance. Rohini consistently demonstrates a proactive approach to problem solving and ensures that tasks are completed with high quality and accuracy. She is also a great team player who collaborates well with others and contributes positively to the team environment. Her commitment to learning and continuous improvement makes her a valuable asset to any organization. I would highly recommend Rohini to any organization looking for a dedicated and skilled engineer.</p>
+    <div class="tauth">
+      <div class="tav">👨‍💼</div>
+      <div>
+        <div class="tnm">Prajwal D</div>
+        <div class="ttl">Senior Engineer · Bosch Global Software Technologies · March 2026</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<div class="wave" style="background:var(--bg);"><svg viewBox="0 0 1440 44" style="height:44px"><path d="M0,14 C480,44 960,0 1440,28 L1440,44 L0,44Z" fill="var(--bg)"/></svg></div>
+<section id="contact">
+<div class="si">
+  <div class="cthead rv">
+    <div class="ey" style="justify-content:center">Contact</div>
+    <h2 class="st">Open for the right<br><span class="gr">automotive QA role</span></h2>
+    <p>Available for <strong style="color:var(--t);">Automotive Infotainment QA</strong>, Embedded Systems Testing, and Software QA roles from <strong style="color:var(--green);">April 2026</strong> · Based in Bengaluru · Open to hybrid &amp; remote · Response within 24 hours.</p>
+    <a href="/cdn-cgi/l/email-protection#3142435e59585f580003070301010171565c50585d1f525e5c" class="btnp" style="display:inline-flex;margin:0 auto;" onclick="boom(event)">Send a Message ↗</a>
+  </div>
+  <div class="ctcards">
+    <a href="/cdn-cgi/l/email-protection#98ebeaf7f0f1f6f1a9aaaeaaa8a8a8d8fff5f9f1f4b6fbf7f5" class="cc rv"><div class="cci em">📧</div><div class="ccl">Email</div><div class="ccv"><span class="__cf_email__" data-cfemail="2f5c5d40474641461e1d191d1f1f1f6f48424e4643014c4042">[email&#160;protected]</span></div></a>
+    <a href="https://linkedin.com/in/rohini-shrisha-35b16b211" target="_blank" class="cc rv d1"><div class="cci li">💼</div><div class="ccl">LinkedIn</div><div class="ccv">rohini-shrisha-35b16b211</div></a>
+    <a href="https://github.com/Rohini-shrisha" target="_blank" class="cc rv d2"><div class="cci gh">🐙</div><div class="ccl">GitHub</div><div class="ccv">Rohini-shrisha</div></a>
+    <div class="cc rv d3"><div class="cci lc">📍</div><div class="ccl">Location</div><div class="ccv">Bengaluru, Karnataka, India</div></div>
+  </div>
+</div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <div class="footer-av">
+        <div class="footer-emoji">👩‍💻</div>
+        <div>
+          <div class="footer-nm">Rohini Shrisha S</div>
+          <div class="footer-role">Automotive Infotainment Test Engineer</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="/cdn-cgi/l/email-protection#1b686974737275722a292d292b2b2b5b7c767a727735787476">📧 Email</a>
+      <a href="https://linkedin.com/in/rohini-shrisha-35b16b211" target="_blank">💼 LinkedIn</a>
+      <a href="https://github.com/Rohini-shrisha" target="_blank">🐙 GitHub</a>
+      <a href="#hero">↑ Back to top</a>
+    </div>
+    <div class="footer-right">
+      <div class="footer-copy">© 2026 Rohini Shrisha S</div>
+      <div class="footer-made">Bengaluru, India · <span>Open to work</span></div>
+    </div>
+  </div>
+</footer>
+
+<div id="hp">
+  <span class="hpem">👋</span>
+  <span class="hptxt">Liked what you saw? <span>Hire Rohini →</span></span>
+  <button class="hpx" onclick="event.stopPropagation();document.getElementById('hp').classList.remove('show')">✕</button>
+</div>
+<a href="/cdn-cgi/l/email-protection#7506071a1d1c1b1c44474347454545351218141c195b161a18" id="fb">💬 Let's Talk</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+var cd=document.getElementById('cdot'),cr=document.getElementById('cring');
+var mx=0,my=0,rx=0,ry=0,ls=0;
+var SC=['#2997ff','#5ac8fa','#fff','#9effff','#30d158'];
+document.addEventListener('mousemove',function(e){
+  mx=e.clientX;my=e.clientY;
+  cd.style.left=mx+'px';cd.style.top=my+'px';
+  var n=Date.now();
+  if(n-ls>60){ls=n;var s=document.createElement('div');s.className='sp';var sz=Math.random()*5+2,a=Math.random()*Math.PI*2,d=Math.random()*26+8;s.style.cssText='left:'+mx+'px;top:'+my+'px;width:'+sz+'px;height:'+sz+'px;background:'+SC[Math.floor(Math.random()*SC.length)]+';--sx:'+Math.cos(a)*d+'px;--sy:'+Math.sin(a)*d+'px;';document.body.appendChild(s);setTimeout(function(){s.remove();},680);}
+});
+(function raf(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(raf);})();
+
+/* THEME */
+document.getElementById('tbtn').addEventListener('click',function(){
+  var d=document.documentElement.getAttribute('data-theme')==='dark';
+  document.documentElement.setAttribute('data-theme',d?'light':'dark');
+  this.textContent=d?'🌙':'☀️';
+  drawRadar();
+});
+
+/* TYPEWRITER */
+var phs=['Automotive Infotainment Testing','CAN Protocol Validation','Embedded Systems QA','Python Test Automation','Configuration Management'];
+var pi=0,ci=0,del=false;
+function tw(){
+  var el=document.getElementById('tw'),ph=phs[pi];
+  if(!del){el.textContent=ph.slice(0,++ci);if(ci===ph.length){del=true;setTimeout(tw,2000);return;}}
+  else{el.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phs.length;}}
+  setTimeout(tw,del?40:80);
+}
+tw();
+
+/* HERO STATS — animate on load */
+function animStat(el, target, delay){
+  setTimeout(function(){
+    var t0=performance.now(), dur=1800;
+    (function step(t){
+      var p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(e*target);
+      if(p<1)requestAnimationFrame(step);
+    })(t0);
+  }, delay);
+}
+animStat(document.getElementById('hs1'),3,400);
+animStat(document.getElementById('hs2'),40,600);
+animStat(document.getElementById('hs3'),50,800);
+animStat(document.getElementById('hs4'),200,1000);
+
+/* RADAR CHART */
+function drawRadar(){
+  var svg=document.getElementById('radar');
+  var cx=130,cy=130,R=95;
+  var labels=['Testing','Automation','Protocols','Hardware','Process','Automotive'];
+  var vals=[0.92,0.80,0.85,0.88,0.88,0.72];
+  var N=labels.length;
+  var ang=function(i){return(i/N)*2*Math.PI-Math.PI/2;};
+  var dark=document.documentElement.getAttribute('data-theme')==='dark';
+  var gc=dark?'rgba(255,255,255,.06)':'rgba(0,0,0,.06)';
+  var tc=dark?'rgba(255,255,255,.42)':'rgba(0,0,0,.5)';
+  svg.innerHTML='';
+  [.25,.5,.75,1].forEach(function(r){
+    var pts=Array.from({length:N},function(_,i){return (cx+Math.cos(ang(i))*R*r)+','+(cy+Math.sin(ang(i))*R*r);}).join(' ');
+    var p=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+    p.setAttribute('points',pts);p.setAttribute('fill','none');p.setAttribute('stroke',gc);p.setAttribute('stroke-width','1');
+    svg.appendChild(p);
+  });
+  for(var i=0;i<N;i++){var l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',cx);l.setAttribute('y1',cy);l.setAttribute('x2',cx+Math.cos(ang(i))*R);l.setAttribute('y2',cy+Math.sin(ang(i))*R);l.setAttribute('stroke',gc);l.setAttribute('stroke-width','1');svg.appendChild(l);}
+  var dpts=vals.map(function(v,i){return (cx+Math.cos(ang(i))*R*v)+','+(cy+Math.sin(ang(i))*R*v);}).join(' ');
+  var dp=document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  dp.setAttribute('points',dpts);dp.setAttribute('fill','rgba(41,151,255,.15)');dp.setAttribute('stroke','#2997ff');dp.setAttribute('stroke-width','2');svg.appendChild(dp);
+  vals.forEach(function(v,i){var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',cx+Math.cos(ang(i))*R*v);c.setAttribute('cy',cy+Math.sin(ang(i))*R*v);c.setAttribute('r','4');c.setAttribute('fill','#2997ff');svg.appendChild(c);});
+  labels.forEach(function(lbl,i){var lx=cx+Math.cos(ang(i))*(R+20);var ly=cy+Math.sin(ang(i))*(R+20);var t=document.createElementNS('http://www.w3.org/2000/svg','text');t.setAttribute('x',lx);t.setAttribute('y',ly);t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','middle');t.setAttribute('fill',tc);t.setAttribute('font-size','10');t.setAttribute('font-weight','600');t.setAttribute('font-family','-apple-system,sans-serif');t.textContent=lbl;svg.appendChild(t);});
+}
+drawRadar();
+
+/* COUNTER */
+function animC(el){
+  var v=parseInt(el.dataset.v),t0=performance.now(),dur=1500;
+  (function s(t){var p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,4);el.textContent=Math.round(e*v);if(p<1)requestAnimationFrame(s);})(t0);
+}
+
+/* SKILL BARS */
+var sbDone=false;
+function checkBars(){
+  if(sbDone)return;
+  var all=true;
+  document.querySelectorAll('.sbf').forEach(function(el){
+    var r=el.closest('.sbi').getBoundingClientRect();
+    if(r.top<window.innerHeight-30){el.style.width=el.dataset.w+'%';}
+    else{all=false;}
+  });
+  if(all)sbDone=true;
+}
+
+/* ACH COUNTERS */
+var achDone=false;
+function checkAch(){
+  if(achDone)return;
+  var first=document.querySelector('.acnt');
+  if(first&&first.getBoundingClientRect().top<window.innerHeight){
+    achDone=true;
+    document.querySelectorAll('.acnt').forEach(animC);
+  }
+}
+
+/* SCROLL REVEAL */
+var rObs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('up');});},{threshold:.06,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv').forEach(function(el){rObs.observe(el);});
+
+/* 3D TILT */
+document.querySelectorAll('.tilt').forEach(function(card){
+  card.addEventListener('mousemove',function(e){
+    var r=card.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width-.5;
+    var y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform='perspective(800px) rotateX('+(-y*12)+'deg) rotateY('+(x*12)+'deg) translateY(-5px)';
+    card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  });
+  card.addEventListener('mouseleave',function(){card.style.transform='';});
+});
+
+/* SCROLL */
+window.addEventListener('scroll',function(){
+  /* reading progress bar */
+  var prog=document.getElementById('prog');
+  var pct=window.scrollY/(document.body.scrollHeight-window.innerHeight);
+  prog.style.width=(Math.min(pct,1)*100)+'%';
+  checkBars();checkAch();
+  var hp=document.getElementById('hp');
+  var fb=document.getElementById('fb');
+  var pct=(window.scrollY+window.innerHeight)/document.body.scrollHeight;
+  if(pct>=0.85&&!hp._shown){hp._shown=true;hp.classList.add('show');}
+  fb.classList.toggle('show',window.scrollY>600);
+  document.getElementById('mnav').style.background=window.scrollY>50?(document.documentElement.getAttribute('data-theme')==='dark'?'rgba(0,0,0,.96)':'rgba(245,245,247,.97)'):'';
+});
+checkBars();
+
+/* ACCORDION */
+function tog(h){h.closest('.tlc').classList.toggle('open');}
+
+/* CONFETTI */
+function boom(e){
+  var C=['#2997ff','#5ac8fa','#30d158','#ff9f0a','#fff','#9effff'];
+  var x=e.clientX||window.innerWidth/2,y=e.clientY||window.innerHeight/2;
+  for(var i=0;i<40;i++){
+    var d=document.createElement('div'),sz=Math.random()*7+3,a=Math.random()*Math.PI*2,dist=Math.random()*160+60,dur=(Math.random()*.65+.5)+'s';
+    d.style.cssText='position:fixed;pointer-events:none;z-index:9999;border-radius:2px;left:'+x+'px;top:'+y+'px;width:'+sz+'px;height:'+(sz/2)+'px;background:'+C[i%C.length]+';animation:cf '+dur+' ease-out forwards;--cx:'+(Math.cos(a)*dist)+'px;--cy:'+(Math.sin(a)*dist)+'px;--cr:'+(Math.random()*720-360)+'deg;';
+    document.body.appendChild(d);setTimeout(function(x){return function(){x.remove()};}(d),800);
+  }
+}
+var cs=document.createElement('style');cs.textContent='@keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--cx),var(--cy)) rotate(var(--cr))}}';document.head.appendChild(cs);
+
+/* HIRE POPUP */
+document.getElementById('hp').addEventListener('click',function(e){if(e.target.classList.contains('hpx'))return;window.location.href='mailto:srohini1262000@gmail.com';boom(e);});
+
+/* ACTIVE NAV HIGHLIGHT */
+var sections=document.querySelectorAll('section[id], div[id="ot"]');
+var navLinks=document.querySelectorAll('.nlinks a');
+function updateActiveNav(){
+  var scrollY=window.scrollY+80;
+  sections.forEach(function(sec){
+    var top=sec.offsetTop, h=sec.offsetHeight;
+    if(scrollY>=top && scrollY<top+h){
+        navLinks.forEach(function(a){a.classList.remove('active');});
+      var active=document.querySelector('.nlinks a[href="#'+sec.id+'"]');
+      if(active)active.classList.add('active');
+    }
+  });
+}
+window.addEventListener('scroll',updateActiveNav);
+updateActiveNav();
+
+function toggleNav(){document.getElementById('burg').classList.toggle('open');document.getElementById('mm').classList.toggle('show');}
+function closeNav(){document.getElementById('burg').classList.remove('open');document.getElementById('mm').classList.remove('show');}
+</script>
+</body>
+</html>
